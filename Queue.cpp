@@ -1,14 +1,14 @@
 /*
-Name(s): Kevin Nguyen & Robert Posada
-Date: 11/20/2015
-Project #3
-*/
+ Name(s): Kevin Nguyen & Robert Posada
+ Date: 11/20/2015
+ Project #3
+ */
 
 #include <iostream>
 #include "Queue.h"
 using namespace std;
 
-// Getters for Qnode
+// getters for Qnode -
 template <class T>
 T Qnode<T>::getValue() {
     return value;
@@ -24,7 +24,52 @@ Qnode<T>* Qnode<T>::getPrev() {
     return prev;
 }
 
-// Getters for Qlist
+// constructors for Qlist
+
+// default constructor -
+template <class T>
+Qlist<T>::Qlist() {
+    front = back = nullptr;
+    size = 0;
+}
+
+// array constructor -
+template <class T>
+Qlist<T>::Qlist(T arr[], int size) {
+    front = back = nullptr;
+    size = 0;
+    for (int i = 0; i < size; i++) {
+        push_back(arr[i]);
+    }
+}
+
+// copy constructor -
+template <class T>
+Qlist<T>::Qlist(const Qlist<T>& list) {
+    front = back = nullptr;
+    size = 0;
+    Qnode<T> *current = list->front;
+    while (current != nullptr) {
+        push_back(current->value);
+        current = current->next;
+    }
+    return *this;
+}
+
+// destructor for Qlist -
+template <class T>
+Qlist<T>::~Qlist() {
+    Qnode<T> *current = front;
+    while (current != nullptr) {
+        Qnode<T> *next = current->next;
+        delete current;
+        size--;
+        current = next;
+    }
+    front = back = nullptr;
+}
+
+// getters for Qlist -
 template <class T>
 Qnode<T>* Qlist<T>::getFront() {
     return front;
@@ -81,6 +126,15 @@ T Qlist<T>::pop_front() {
     return ret;
 }
 
+// overloaded array access operator
+template <class T>
+T Qlist<T>::operator [] (const int index) {
+    Qnode<T> *current = front;
+    for (int i = 0; i < index; i++) {
+        current = current->next;
+    }
+    return current->value;
+}
 
 
 
