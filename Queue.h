@@ -1,63 +1,54 @@
-#ifndef BLIST_H
-
-#define BLIST_H
-
 /*
- Name(s): Kevin Nguyen & Robert Posada
- Date: 11/09/2015
- CS-102
- Project #2
- */
+Name(s): Kevin Nguyen & Robert Posada
+Date: 11/20/2015
+Project #3
+*/
+
+#ifndef Queue_h
+#define Queue_h
+
+#include <iostream>
+using namespace std;
 
 template <class T>
-class Bnode{
+class Qnode {
+private:
     template <class U>
-    friend class Blist;
+    friend class Qlist;
     T value;
-    Bnode<T> *next, *prev;
+    Qnode<T> *next;
+    Qnode<T> *prev;
 public:
-    T getVal();
-    Bnode<T>* getNext();
-    Bnode<T>* getPrev();
+    T getValue();
+    Qnode<T>* getNext();
+    Qnode<T>* getPrev();
 };
 
 template <class T>
-class Blist {
-    Bnode<T> *front, *back;
+class Qlist {
+private:
+    Qnode<T> *front;
+    Qnode<T> *back;
     int size;
 public:
-    // getters
-    Bnode<T>* getFront();
-    Bnode<T>* getBack();
+    // Constructors
+    Qlist();
+    Qlist(T arr[], int size);
+    Qlist(const Qlist<T>& list);
+    
+    // Destructor
+    ~Qlist();
+    
+    // Getters
+    Qnode<T>* getFront();
+    Qnode<T>* getBack();
     int getSize();
     
-    // constructors
-    Blist<T>();
-    Blist<T>(T arr[], int sz);
-    Blist<T>(const Blist<T>& list);
-    
-    // destructor
-    ~Blist<T>(void);
-    
-    // methods
-    bool empty(void);
-    T pop_back(void);
-    T pop_front(void);
+    // Methods
+    bool empty();
     void push_back(T value);
-    void push_front(T value);
-    void print(char symbol, void (*printM)(T value));
-    int counter(void);
-    void bsort(Bnode<T> *left, Bnode<T> *right);
-    void bsort(Bnode<T> *left, Bnode<T> *right, int (*cmp)(T val, T val2));
-    void insert(Bnode<T> *p, T val);
-    void del(Bnode<T>* p);
-    Blist<T> sublist(Bnode<T>* b, Bnode<T> *e);
-    Bnode<T>* at(const int& index);
-    int getPos(Bnode<T> *p);
-    
-    // overloaded operators
+    T pop_front();
     T operator [] (const int index);
-    Blist<T>& operator = (const Blist<T>& list);
 };
 
 #endif
