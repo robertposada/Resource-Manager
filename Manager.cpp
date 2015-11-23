@@ -5,7 +5,6 @@ Project #3
 */
 
 #include <iostream>
-#include <iomanip>
 #include <fstream>
 #include "Queue.h"
 #include "Queue.cpp"
