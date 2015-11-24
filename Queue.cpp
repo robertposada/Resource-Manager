@@ -91,9 +91,9 @@ bool Qlist<T>::empty() {
     }
 }
 
-// push back method -
+// push front method -
 template <class T>
-void Qlist<T>::push_back(T value) {
+void Qlist<T>::push_front(T value) {
     Qnode<T> *newNode = new Qnode<T>;
     newNode->value = value;
     if (empty()) {
@@ -101,25 +101,25 @@ void Qlist<T>::push_back(T value) {
         front = back = newNode;
     }
     else {
-        back->next = newNode;
-        newNode->prev = back;
-        newNode->next = nullptr;
-        back = newNode;
+        front->prev = newNode;
+        newNode->next = front;
+        newNode->prev = nullptr;
+        front = newNode;
     }
     return;
 }
 
-// pop front method -
+// pop back method -
 template <class T>
-T Qlist<T>::pop_front() {
-    Qnode<T> *temp = front;
-    T ret = front->value;
+T Qlist<T>::pop_back() {
+    Qnode<T> *temp = back;
+    T ret = back->value;
     if (front == back) {
         front = back = nullptr;
     }
     else {
-        front = front->next;
-        front->prev = nullptr;
+        back = back->prev;
+        back->next = nullptr;
     }
     size--;
     delete temp;

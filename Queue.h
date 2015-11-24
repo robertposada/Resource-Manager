@@ -46,8 +46,8 @@ public:
     
     // Methods
     bool empty();
-    void push_back(T value);
-    T pop_front();
+    void push_front(T value);
+    T pop_back();
     T operator [] (const int index);
 };
 
