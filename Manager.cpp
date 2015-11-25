@@ -14,7 +14,7 @@ Project #3
 using namespace std;
 
 class Record {
-private:
+public:
     int time; //MAKE GETTERS FOR ALL OF THESE
     string name;
     int games; // number of games they want to play
