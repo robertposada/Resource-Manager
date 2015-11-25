@@ -14,13 +14,15 @@ using namespace std;
 
 class Record {
 private:
-    int time;
+    int time; //MAKE GETTERS FOR ALL OF THESE BITCHES
     string name;
     int games; // number of games they want to play
     int rank; // priority
 public:
     // public methods for Record class
 };
+
+//make three queues and add the bitches in by rank into corresponding queue
 
 void read(Record arr[]) {
     ifstream infile;
