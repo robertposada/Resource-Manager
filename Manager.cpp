@@ -5,6 +5,7 @@ Project #3
 */
 
 #include <iostream>
+#include <vector>
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -14,20 +15,17 @@ using namespace std;
 
 class Record {
 private:
-    int time; //MAKE GETTERS FOR ALL OF THESE BITCHES
+    int time; //MAKE GETTERS FOR ALL OF THESE
     string name;
     int games; // number of games they want to play
     int rank; // priority
-public:
     // public methods for Record class
 };
 
-//make three queues and add the bitches in by rank into corresponding queue
-
-void read(Record arr[]) {
+void read(vector <Record>& records) {
+>>>>>>> upstream/master
     ifstream infile;
     string filename, fline;
-    int i = 0;
     
     cout << "Name of file: ";
     getline(cin, filename);
@@ -37,8 +35,7 @@ void read(Record arr[]) {
         while (getline(infile, fline)) { // alternative to eof flag.
             Record temp;
             stringstream(fline) >> temp.time >> temp.name >> temp.games >> temp.rank;
-            arr[i] = temp;
-            i++;
+            records.push_back(temp);
         }
     }
     else {
@@ -49,6 +46,10 @@ void read(Record arr[]) {
 }
 
 int main() {
-    
+    vector <Record> records;
+    read(records);
+    for (Record r : records) {
+        cout << r.time << ' ' << r.name << ' ' << r.games << ' ' << r.rank << endl;
+    }
     return 0;
 }
