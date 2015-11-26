@@ -44,6 +44,9 @@ public:
     Qnode<T>* getBack();
     int getSize();
     
+    //overload operator
+    Qlist<T>& operator =(const Qlist<T>& list);
+    
     // Methods
     bool empty();
     void push_front(T value);

@@ -31,6 +31,17 @@ public:
     friend void printR(Record rec);
 };
 
+void printR(Record rec) {
+    cout << "Name: " << rec.name << endl << "Rank: ";
+    if (rec.rank == 1)
+        cout << "Gold";
+    else if (rec.rank == 2)
+        cout << "Silver";
+    else
+        cout << "Bronze";
+    cout << endl << "Games: " << rec.games << endl;
+}
+
 class Manager {
 private:
     Qlist<Record> gold, silver, bronze;
@@ -39,6 +50,8 @@ private:
 public:
     //constructor
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
+    //GETTERS
+    int get_clock();
     //methods
     void make_teams();
 };
@@ -50,9 +63,33 @@ Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
     bronze = b;
 }
 
-void make_teams() {
-    
-    
+int Manager::get_clock() {
+    return clock;
+}
+
+void Manager::make_teams() {
+    team1.push_back(gold[0]);
+    team2.push_back(gold[1]);
+    team1.push_back(gold[2]);
+    team2.push_back(silver[0]);
+    team2.push_back(silver[1]);
+    team1.push_back(bronze[0]);
+    vector<Record> teams = team1;
+    teams.insert(teams.end(), team2.begin(), team2.end());
+    int max = teams.at(0).get_time();
+    for (int i = 1; i < teams.size(); i++) {
+        if (teams.at(i).get_time() > max) {
+            max = teams.at(i).get_time();
+        }
+    }
+    clock = max;
+    for (Record r : teams)
+        printR(r);
+    for (Record r : team1)
+        printR(r);
+    for (Record r : team2)
+        printR(r);
+    cout << clock;
 }
 
 int Record::get_time() {
@@ -93,16 +130,6 @@ void read(vector <Record>& records) {
     return;
 }
 
-void printR(Record rec) {
-    cout << "Name: " << rec.name << endl << "Rank: ";
-    if (rec.rank == 1)
-        cout << "Gold";
-    else if (rec.rank == 2)
-        cout << "Silver";
-    else
-        cout << "Bronze";
-    cout << endl << "Games: " << rec.games << endl;
-}
 
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
     //assigning players to respective queue
@@ -121,8 +148,8 @@ int main() {
     Qlist<Record> gold, silver, bronze;
     read(records);
     assignQ(records, gold, silver, bronze);
-    for (int i = 0; i < gold.getSize(); i++) {
-        printR(gold[i]);
-    }
+    Manager rito = Manager(gold, silver, bronze);
+    rito.make_teams();
+    
     return 0;
 }
