@@ -26,6 +26,7 @@ Qnode<T>* Qnode<T>::getPrev() {
 
 // constructors for Qlist
 
+
 // default constructor -
 template <class T>
 Qlist<T>::Qlist() {
@@ -48,9 +49,9 @@ template <class T>
 Qlist<T>::Qlist(const Qlist<T>& list) {
     front = back = nullptr;
     size = 0;
-    Qnode<T> *current = list->front;
+    Qnode<T> *current = list.front;
     while (current != nullptr) {
-        push_back(current->value);
+        push_front(current->value);
         current = current->next;
     }
 }
@@ -141,6 +142,15 @@ T Qlist<T>::operator [] (const int index) {
     return current->value;
 }
 
+<<<<<<< HEAD
+template <class T>
+Qlist<T>& Qlist<T>::operator =(const Qlist<T>& list) {
+    this->~Qlist();
+    size = 0;
+    Qnode<T> *current = list.front;
+    while (current != nullptr) {
+        push_front(current->value);
+=======
 // overloaded assignment operator
 template <class T>
 Qlist<T>& Qlist::operator = (const Qlist<T>& list) {
@@ -149,10 +159,14 @@ Qlist<T>& Qlist::operator = (const Qlist<T>& list) {
     Qlist<T> *current = list.front;
     while (current != nullptr) {
         push_back(current->value);
+>>>>>>> upstream/master
         current = current->next;
     }
     return *this;
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/master
 
 
