@@ -13,6 +13,8 @@ Project #3
 #include "Queue.cpp"
 using namespace std;
 
+const string LOGFILE = "log.txt";
+
 class Record {
 private:
     int time; //MAKE GETTERS FOR ALL OF THESE
@@ -46,14 +48,16 @@ class Manager {
 private:
     Qlist<Record> gold, silver, bronze;
     vector <Record> team1, team2;
-    int clock;
+    int clock, gameStart, gameEnd;
 public:
     //constructor
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
     //GETTERS
     int get_clock();
+    int get_gametime();
     //methods
     void make_teams();
+    void write(Record rec, int option);
 };
 
 Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
@@ -82,14 +86,41 @@ void Manager::make_teams() {
             max = teams.at(i).get_time();
         }
     }
-    clock = max;
-    for (Record r : teams)
+    clock = gameStart = max;
+    gameEnd = gameStart + 10;
+    for (Record r: teams) {
         printR(r);
-    for (Record r : team1)
-        printR(r);
-    for (Record r : team2)
-        printR(r);
-    cout << clock << endl;
+    }
+    for (Record r : team1) {
+        write(r, 2);
+    }
+    for (Record r : team2) {
+        write(r, 2);
+    }
+}
+
+void Manager::write(Record rec, int option) {
+    ofstream outfile;
+    string fline;
+    outfile.open(LOGFILE, ios::app);
+    if (outfile) {
+        switch (option) {
+            case 1:
+                outfile << rec.get_name() << " entered queue for " << rec.get_games() << " games at " << rec.get_time() << endl;
+                break;
+            case 2:
+                outfile << rec.get_name() << " started game at " << gameStart << endl;
+                break;
+            case 3:
+                outfile << rec.get_name() << " ended game at " << gameEnd << endl;
+                break;
+        }
+    }
+    else {
+        cout << "ERROR: Cannot open file." << endl;
+    }
+    outfile.close();
+    return;
 }
 
 int Record::get_time() {
@@ -129,7 +160,6 @@ void read(vector <Record>& records) {
     infile.close();
     return;
 }
-
 
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
     //assigning players to respective queue
