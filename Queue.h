@@ -43,11 +43,11 @@ public:
     Qnode<T>* getFront();
     Qnode<T>* getBack();
     int getSize();
-    
+
     // Methods
     bool empty();
-    void push_front(T value);
-    T pop_back();
+    void push_back(T value);
+    T pop_front();
     
     // Overloaded operators
     Qlist<T>& operator =(const Qlist<T>& list);

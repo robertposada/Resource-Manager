@@ -51,7 +51,7 @@ Qlist<T>::Qlist(const Qlist<T>& list) {
     size = 0;
     Qnode<T> *current = list.front;
     while (current != nullptr) {
-        push_front(current->value);
+        push_back(current->value);
         current = current->next;
     }
 }
@@ -96,9 +96,9 @@ bool Qlist<T>::empty() {
     }
 }
 
-// push front method -
+// push back method -
 template <class T>
-void Qlist<T>::push_front(T value) {
+void Qlist<T>::push_back(T value) {
     Qnode<T> *newNode = new Qnode<T>;
     newNode->value = value;
     if (empty()) {
@@ -106,26 +106,26 @@ void Qlist<T>::push_front(T value) {
         front = back = newNode;
     }
     else {
-        front->prev = newNode;
-        newNode->next = front;
-        newNode->prev = nullptr;
-        front = newNode;
+        back->next = newNode;
+        newNode->prev = back;
+        newNode->next = nullptr;
+        back = newNode;
     }
     size++;
     return;
 }
 
-// pop back method -
+// pop front method -
 template <class T>
-T Qlist<T>::pop_back() {
-    Qnode<T> *temp = back;
-    T ret = back->value;
+T Qlist<T>::pop_front() {
+    Qnode<T> *temp = front;
+    T ret = temp->value;
     if (front == back) {
         front = back = nullptr;
     }
     else {
-        back = back->prev;
-        back->next = nullptr;
+        front = front->next;
+        front->prev = nullptr;
     }
     size--;
     delete temp;
@@ -142,15 +142,14 @@ T Qlist<T>::operator [] (const int index) {
     return current->value;
 }
 
-//overloaded assignment operator
+// overloaded assignment operator
 template <class T>
-Qlist<T>& Qlist<T>::operator =(const Qlist<T>& list) {
+Qlist<T>& Qlist<T>::operator = (const Qlist<T>& list) {
     this->~Qlist();
     size = 0;
     Qnode<T> *current = list.front;
     while (current != nullptr) {
-        push_front(current->value);
-
+        push_back(current->value);
         current = current->next;
     }
     return *this;

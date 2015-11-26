@@ -89,7 +89,7 @@ void Manager::make_teams() {
         printR(r);
     for (Record r : team2)
         printR(r);
-    cout << clock;
+    cout << clock << endl;
 }
 
 int Record::get_time() {
@@ -135,11 +135,11 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
     //assigning players to respective queue
     for (Record r : records) {
         if (r.get_rank() == 1)
-            g.push_front(r);
+            g.push_back(r);
         else if (r.get_rank() == 2)
-            s.push_front(r);
+            s.push_back(r);
         else
-            b.push_front(r);
+            b.push_back(r);
     }
 }
 
