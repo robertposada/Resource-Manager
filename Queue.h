@@ -44,16 +44,13 @@ public:
     Qnode<T>* getBack();
     int getSize();
     
-    //overload operator
-    Qlist<T>& operator =(const Qlist<T>& list);
-    
     // Methods
     bool empty();
     void push_front(T value);
     T pop_back();
     
     // Overloaded operators
-    Qlist<T>& operator = (const Qlist<T>& list);
+    Qlist<T>& operator =(const Qlist<T>& list);
     T operator [] (const int index);
 };
 
