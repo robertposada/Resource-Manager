@@ -53,7 +53,6 @@ Qlist<T>::Qlist(const Qlist<T>& list) {
         push_back(current->value);
         current = current->next;
     }
-    return *this;
 }
 
 // destructor for Qlist -
@@ -134,6 +133,19 @@ T Qlist<T>::operator [] (const int index) {
         current = current->next;
     }
     return current->value;
+}
+
+// overloaded assignment operator
+template <class T>
+Qlist<T>& Qlist::operator = (const Qlist<T>& list) {
+    this->~Qlist();
+    size = 0;
+    Qlist<T> *current = list.front;
+    while (current != nullptr) {
+        push_back(current->value);
+        current = current->next;
+    }
+    return *this;
 }
 
 
