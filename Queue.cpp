@@ -142,6 +142,7 @@ T Qlist<T>::operator [] (const int index) {
     return current->value;
 }
 
+<<<<<<< HEAD
 template <class T>
 Qlist<T>& Qlist<T>::operator =(const Qlist<T>& list) {
     this->~Qlist();
@@ -149,9 +150,23 @@ Qlist<T>& Qlist<T>::operator =(const Qlist<T>& list) {
     Qnode<T> *current = list.front;
     while (current != nullptr) {
         push_front(current->value);
+=======
+// overloaded assignment operator
+template <class T>
+Qlist<T>& Qlist::operator = (const Qlist<T>& list) {
+    this->~Qlist();
+    size = 0;
+    Qlist<T> *current = list.front;
+    while (current != nullptr) {
+        push_back(current->value);
+>>>>>>> upstream/master
         current = current->next;
     }
     return *this;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 
 

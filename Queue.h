@@ -51,6 +51,9 @@ public:
     bool empty();
     void push_front(T value);
     T pop_back();
+    
+    // Overloaded operators
+    Qlist<T>& operator = (const Qlist<T>& list);
     T operator [] (const int index);
 };
 
