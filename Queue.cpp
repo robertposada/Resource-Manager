@@ -80,6 +80,11 @@ Qnode<T>* Qlist<T>::getBack() {
     return back;
 }
 
+template <class T>
+int Qlist<T>::getSize() {
+    return size;
+}
+
 // is empty method -
 template <class T>
 bool Qlist<T>::empty() {
@@ -106,6 +111,7 @@ void Qlist<T>::push_front(T value) {
         newNode->prev = nullptr;
         front = newNode;
     }
+    size++;
     return;
 }
 
