@@ -1,6 +1,18 @@
+Jimbus entered queue for 5 games at 1
+Nagoogin entered queue for 3 games at 3
+Hugo entered queue for 2 games at 5
+Ernest entered queue for 5 games at 6
+Francis entered queue for 1 games at 8
+Christoph entered queue for 4 games at 11
 Jimbus started game at 11
 Christoph started game at 11
 Hugo started game at 11
 Nagoogin started game at 11
 Ernest started game at 11
 Francis started game at 11
+Jimbus ended game at 21
+Christoph ended game at 21
+Hugo ended game at 21
+Nagoogin ended game at 21
+Ernest ended game at 21
+Francis ended game at 21
