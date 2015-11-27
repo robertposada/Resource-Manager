@@ -81,6 +81,8 @@ void Manager::make_teams() {
     team2.push_back(silver[0]);
     team2.push_back(silver[1]);
     team1.push_back(bronze[0]);
+    
+    // Should put code from here down in separate function(s)
     vector<Record> teams = team1;
     teams.insert(teams.end(), team2.begin(), team2.end());
     for (int i = 0; i < teams.size() - 1; i++) {
@@ -110,6 +112,13 @@ void Manager::make_teams() {
         write(r, 3);
     }
 }
+
+// -- NOTES -- //
+//
+// Need a function that simulates the requests until the queue is empty - while (!is_empty()) { ... }
+// is_empty() should return true if and only if queues g, s, and b are empty
+//
+// -- NOTES -- //
 
 void Manager::write(Record rec, int option) {
     ofstream outfile;
