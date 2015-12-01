@@ -116,8 +116,6 @@ void Manager::make_teams() {
         silver.pop_front();
     }
     bronze.pop_front();
-    
-    reassign();
 }
 
 // -- NOTES -- //
@@ -229,8 +227,6 @@ void Manager::reassign() {
     
     team1.clear();
     team2.clear();
-    
-    make_teams();
 }
 
 int main() {
