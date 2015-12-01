@@ -17,18 +17,19 @@ const string LOGFILE = "log.txt";
 
 class Record {
 private:
-    int time; //MAKE GETTERS FOR ALL OF THESE
+    int time;
     string name;
     int games; // number of games they want to play
     int rank; // priority
 public:
     // public methods for Record class
-    //GETTERS
+    // getters
     int get_time();
     string get_name();
     int get_games();
     int get_rank();
-    //friends
+    
+    // friends
     friend void read(vector <Record>& records);
     friend void printR(Record rec);
     friend void reassign();
@@ -52,12 +53,14 @@ private:
     vector <Record> team1, team2;
     int clock, gameStart, gameEnd;
 public:
-    //constructor
+    // constructor
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
-    //GETTERS
+    
+    // getters
     int get_clock();
     int get_gametime();
-    //methods
+    
+    // methods
     void make_teams();
     void write(Record rec, int option);
     void reassign();
@@ -82,18 +85,23 @@ void Manager::make_teams() {
     team2.push_back(silver[0]);
     team2.push_back(silver[1]);
     team1.push_back(bronze[0]);
+    
+    // Should put code from here down in separate function(s)
     vector<Record> teams = team1;
     teams.insert(teams.end(), team2.begin(), team2.end());
-    int max = teams.at(0).get_time();
-    for (int i = 1; i < teams.size(); i++) {
-        if (teams.at(i).get_time() > max) {
-            max = teams.at(i).get_time();
+    for (int i = 0; i < teams.size() - 1; i++) {
+        for (int j = 1; j < teams.size(); j++) {
+            if (teams.at(j).get_time() < teams.at(j - 1).get_time()) {
+                Record temp = teams.at(j);
+                teams.at(j) = teams.at(j - 1);
+                teams.at(j - 1) = temp;
+            }
         }
     }
-    clock = gameStart = max;
+    clock = gameStart = teams.at(teams.size()-1).get_time();
     gameEnd = gameStart + 10;
     for (Record r: teams) {
-        printR(r);
+        write(r, 1);
     }
     for (Record r : team1) {
         write(r, 2);
@@ -111,6 +119,13 @@ void Manager::make_teams() {
     
     reassign();
 }
+
+// -- NOTES -- //
+//
+// Need a function that simulates the requests until the queue is empty - while (!is_empty()) { ... }
+// is_empty() should return true if and only if queues g, s, and b are empty
+//
+// -- NOTES -- //
 
 void Manager::write(Record rec, int option) {
     ofstream outfile;
