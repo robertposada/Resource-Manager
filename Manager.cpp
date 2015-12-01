@@ -5,10 +5,12 @@ Project #3
 */
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <ctime>
 #include "Queue.h"
 #include "Queue.cpp"
 using namespace std;
@@ -32,8 +34,8 @@ public:
     // friends
     friend void read(vector <Record>& records);
     friend void printR(Record rec);
-    friend void reassign();
-    friend void game(int win, vector <Record>& team1, vector <Record>& team2);
+    
+    friend class Manager;
 };
 
 void printR(Record rec) {
@@ -64,6 +66,7 @@ public:
     void make_teams();
     void write(Record rec, int option);
     void reassign();
+    void updateLog(vector<Record>& records);
     void game(int win, vector <Record>& team1, vector <Record>& team2);
 };
 
@@ -110,7 +113,7 @@ void Manager::make_teams() {
         write(r, 2);
     }
     for (int i = 0; i < 3; i++) {
-        gold.pop_front()
+        gold.pop_front();
     }
     for (int i = 0; i < 2; i++) {
         silver.pop_front();
@@ -132,14 +135,22 @@ void Manager::write(Record rec, int option) {
     if (outfile) {
         switch (option) {
             case 1:
-                outfile << rec.get_name() << " entered queue for " << rec.get_games() << " games at " << rec.get_time() << endl;
+                outfile << setfill('0') << setw(2) << rec.get_time() << " -- " << rec.get_name() << " entered queue for " << rec.get_games() << " games" << endl;
                 break;
             case 2:
-                outfile << rec.get_name() << " started game at " << gameStart << endl;
+                outfile << setfill('0') << setw(2) << gameStart << " -- " << rec.get_name() << " started game" << endl;
                 break;
             case 3:
-                outfile << rec.get_name() << " ended game at " << gameEnd << endl;
+                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " ended game" << endl;
                 break;
+            case 4:
+                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " was promoted to rank " << rec.get_rank() << endl;
+                break;
+            case 5:
+                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " was demoted to rank " << rec.get_rank() << endl;
+                break;
+            case 6:
+                outfile << setfill('0') << setw(2) << clock << " -- " << rec.get_name() << " left queue" << endl;
         }
     }
     else {
@@ -188,9 +199,9 @@ void read(vector <Record>& records) {
 }
 
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
-    //assigning players to respective queue
+    // assigning players to respective queue
     for (Record r : records) {
-        if (r.get_games > 0) {
+        if (r.get_games() > 0) {
             if (r.get_rank() == 1)
                 g.push_back(r);
             else if (r.get_rank() == 2)
@@ -202,25 +213,51 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
 }
 
 void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
-    for (int i = 0; i < t1.size(); i++) {
-        if (team1.at(i).get_rank() != 1) {
+    for (int i = 0; i < team1.size(); i++) {
+        // promotes the winning team's priority unless they're already priority 1
+        if (team1.at(i).rank != 1) {
             team1.at(i).rank--;
             team1.at(i).games--;
         }
-        if (team2.at(i).get_rank() != 3) {
+        
+        // demotes the losing team's priority unless they're already priority 3
+        if (team2.at(i).rank != 3) {
             team2.at(i).rank++;
             team2.at(i).games--;
+        }
+    }
+    for (Record r: team1) {
+        write(r, 4);
+    }
+    for (Record r: team2) {
+        write(r, 5);
+    }
+}
+
+void Manager::updateLog(vector<Record>& records) {
+    for (Record r : records) {
+        if (r.time > gameStart && r.time < gameEnd) {
+            write(r, 1);
         }
     }
 }
 
 void Manager::reassign() {
-    int winner = rand() % 1;
+    for (Record r : team1) {
+        write(r, 3);
+    }
+    for (Record r : team2) {
+        write(r, 3);
+    }
+    
+    srand(time(0));
+    int winner = rand() % 2;
     if (winner == 0) {
         game(winner, team1, team2);
     }
-    else
+    else {
         game(winner, team2, team1);
+    }
     
     assignQ(team1, gold, silver, bronze);
     assignQ(team2, gold, silver, bronze);
@@ -235,7 +272,11 @@ int main() {
     read(records);
     assignQ(records, gold, silver, bronze);
     Manager rito = Manager(gold, silver, bronze);
-    rito.make_teams();
+    while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
+        rito.make_teams();
+        rito.updateLog(records);
+        rito.reassign();
+    }
     
     return 0;
 }
