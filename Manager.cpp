@@ -53,7 +53,7 @@ class Manager {
 private:
     Qlist<Record> gold, silver, bronze;
     vector <Record> team1, team2;
-    int clock, gameStart, gameEnd;
+    int clock = 0, gameStart = 0, gameEnd = 0;
 public:
     // constructor
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
@@ -63,9 +63,10 @@ public:
     int get_gametime();
     
     // methods
-    void make_teams();
+    void make_teams(vector<Record>& records);
     void write(Record rec, int option);
     void reassign();
+    void updateTime(vector<Record>& records);
     void updateLog(vector<Record>& records);
     void game(int win, vector <Record>& team1, vector <Record>& team2);
 };
@@ -81,7 +82,7 @@ int Manager::get_clock() {
     return clock;
 }
 
-void Manager::make_teams() {
+void Manager::make_teams(vector<Record>& records) {
     team1.push_back(gold[0]);
     team2.push_back(gold[1]);
     team1.push_back(gold[2]);
@@ -101,11 +102,19 @@ void Manager::make_teams() {
             }
         }
     }
-    clock = gameStart = teams.at(teams.size()-1).get_time();
-    gameEnd = gameStart + 10;
-    for (Record r: teams) {
-        write(r, 1);
+    if (clock > gameStart) {
+        gameStart = clock + 1;
     }
+    else {
+        gameStart = teams.at(teams.size()-1).get_time();
+    }
+    for (Record r : teams) {
+        if (r.time > gameEnd && r.time <= gameStart) {
+            write(r, 1);
+        }
+    }
+    clock = gameEnd = gameStart + 10;
+    
     for (Record r : team1) {
         write(r, 2);
     }
@@ -119,14 +128,9 @@ void Manager::make_teams() {
         silver.pop_front();
     }
     bronze.pop_front();
+    
+    return;
 }
-
-// -- NOTES -- //
-//
-// Need a function that simulates the requests until the queue is empty - while (!is_empty()) { ... }
-// is_empty() should return true if and only if queues g, s, and b are empty
-//
-// -- NOTES -- //
 
 void Manager::write(Record rec, int option) {
     ofstream outfile;
@@ -150,7 +154,7 @@ void Manager::write(Record rec, int option) {
                 outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " was demoted to rank " << rec.get_rank() << endl;
                 break;
             case 6:
-                outfile << setfill('0') << setw(2) << clock << " -- " << rec.get_name() << " left queue" << endl;
+                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " left queue" << endl;
         }
     }
     else {
@@ -202,36 +206,51 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
     // assigning players to respective queue
     for (Record r : records) {
         if (r.get_games() > 0) {
-            if (r.get_rank() == 1)
+            if (r.get_rank() == 1) {
                 g.push_back(r);
-            else if (r.get_rank() == 2)
+            }
+            else if (r.get_rank() == 2) {
                 s.push_back(r);
-            else
+            }
+            else {
                 b.push_back(r);
+            }
         }
     }
+    return;
 }
 
 void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
     for (int i = 0; i < team1.size(); i++) {
         // promotes the winning team's priority unless they're already priority 1
-        if (team1.at(i).rank != 1) {
+        if (team1.at(i).get_rank() != 1) {
             team1.at(i).rank--;
             team1.at(i).games--;
         }
         
         // demotes the losing team's priority unless they're already priority 3
-        if (team2.at(i).rank != 3) {
+        if (team2.at(i).get_rank() != 3) {
             team2.at(i).rank++;
             team2.at(i).games--;
         }
     }
-    for (Record r: team1) {
+    for (Record r : team1) {
         write(r, 4);
     }
-    for (Record r: team2) {
+    for (Record r : team2) {
         write(r, 5);
     }
+    for (Record r : team1) {
+        if (r.games == 0) {
+            write(r, 6);
+        }
+    }
+    for (Record r : team2) {
+        if (r.games == 0) {
+            write(r, 6);
+        }
+    }
+    return;
 }
 
 void Manager::updateLog(vector<Record>& records) {
@@ -240,6 +259,14 @@ void Manager::updateLog(vector<Record>& records) {
             write(r, 1);
         }
     }
+    return;
+}
+
+void Manager::updateTime(vector<Record>& records) {
+    for (Record r: records) {
+        r.time = gameEnd;
+    }
+    return;
 }
 
 void Manager::reassign() {
@@ -259,11 +286,23 @@ void Manager::reassign() {
         game(winner, team2, team1);
     }
     
+    updateTime(team1);
+    updateTime(team2);
+    /*
+    for (Record r : team1) {
+        write(r, 1);
+    }
+    for (Record r : team2) {
+        write(r, 1);
+    }
+     */
     assignQ(team1, gold, silver, bronze);
     assignQ(team2, gold, silver, bronze);
     
     team1.clear();
     team2.clear();
+    
+    return;
 }
 
 int main() {
@@ -272,8 +311,9 @@ int main() {
     read(records);
     assignQ(records, gold, silver, bronze);
     Manager rito = Manager(gold, silver, bronze);
-    while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
-        rito.make_teams();
+    //while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
+    for (int i = 0; i < 8; i++) {
+        rito.make_teams(records);
         rito.updateLog(records);
         rito.reassign();
     }

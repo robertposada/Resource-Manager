@@ -1,1 +1,175 @@
-
+01 -- Jimbus entered queue for 5 games
+03 -- Nagoogin entered queue for 3 games
+05 -- Hugo entered queue for 2 games
+06 -- Ernest entered queue for 5 games
+08 -- Francis entered queue for 1 games
+11 -- Christoph entered queue for 4 games
+11 -- Jimbus started game
+11 -- Christoph started game
+11 -- Hugo started game
+11 -- Nagoogin started game
+11 -- Ernest started game
+11 -- Francis started game
+15 -- Arturo entered queue for 5 games
+16 -- Jason entered queue for 3 games
+19 -- Posadinho entered queue for 2 games
+20 -- Wayne entered queue for 5 games
+21 -- Jimbus ended game
+21 -- Christoph ended game
+21 -- Hugo ended game
+21 -- Nagoogin ended game
+21 -- Ernest ended game
+21 -- Francis ended game
+21 -- Jimbus was promoted to rank 1
+21 -- Christoph was promoted to rank 1
+21 -- Hugo was promoted to rank 2
+21 -- Nagoogin was demoted to rank 2
+21 -- Ernest was demoted to rank 3
+21 -- Francis was demoted to rank 3
+21 -- Francis left queue
+22 -- Posadinho started game
+22 -- Bjerg started game
+22 -- Arturo started game
+22 -- Edna started game
+22 -- Jason started game
+22 -- Bobby started game
+25 -- Bobby entered queue for 5 games
+26 -- Edna entered queue for 3 games
+29 -- Petyr entered queue for 4 games
+30 -- Bjerg entered queue for 5 games
+32 -- Posadinho ended game
+32 -- Bjerg ended game
+32 -- Arturo ended game
+32 -- Edna ended game
+32 -- Jason ended game
+32 -- Bobby ended game
+32 -- Posadinho was promoted to rank 1
+32 -- Bjerg was promoted to rank 1
+32 -- Arturo was promoted to rank 2
+32 -- Edna was demoted to rank 2
+32 -- Jason was demoted to rank 3
+32 -- Bobby was demoted to rank 3
+33 -- Vladimir started game
+33 -- Trick started game
+33 -- Wayne started game
+33 -- Delata started game
+33 -- Petyr started game
+33 -- Steph started game
+35 -- Vladimir entered queue for 4 games
+37 -- Delata entered queue for 2 games
+38 -- Trick entered queue for 3 games
+39 -- Bthalft entered queue for 1 games
+41 -- Jerry entered queue for 4 games
+43 -- Vladimir ended game
+43 -- Trick ended game
+43 -- Wayne ended game
+43 -- Delata ended game
+43 -- Petyr ended game
+43 -- Steph ended game
+43 -- Vladimir was promoted to rank 1
+43 -- Trick was promoted to rank 1
+43 -- Wayne was promoted to rank 2
+43 -- Delata was demoted to rank 2
+43 -- Petyr was demoted to rank 3
+43 -- Steph was demoted to rank 3
+44 -- Lionel started game
+44 -- Jimbus started game
+44 -- Jung started game
+44 -- Randy started game
+44 -- Edward started game
+44 -- Cristiano started game
+47 -- Cuban entered queue for 1 games
+50 -- Edward entered queue for 4 games
+51 -- Lionel entered queue for 4 games
+54 -- Lionel ended game
+54 -- Jimbus ended game
+54 -- Jung ended game
+54 -- Randy ended game
+54 -- Edward ended game
+54 -- Cristiano ended game
+54 -- Lionel was promoted to rank 1
+54 -- Jimbus was promoted to rank 1
+54 -- Jung was promoted to rank 2
+54 -- Randy was demoted to rank 2
+54 -- Edward was demoted to rank 3
+54 -- Cristiano was demoted to rank 3
+55 -- Christoph started game
+55 -- Bjerg started game
+55 -- Bthalft started game
+55 -- Posadinho started game
+55 -- Tyrion started game
+55 -- Jeff started game
+59 -- Ayalew entered queue for 1 games
+61 -- Tyrion entered queue for 4 games
+62 -- Randy entered queue for 3 games
+64 -- Jeff entered queue for 5 games
+65 -- Christoph ended game
+65 -- Bjerg ended game
+65 -- Bthalft ended game
+65 -- Posadinho ended game
+65 -- Tyrion ended game
+65 -- Jeff ended game
+65 -- Christoph was promoted to rank 1
+65 -- Bjerg was promoted to rank 1
+65 -- Bthalft was promoted to rank 2
+65 -- Posadinho was demoted to rank 2
+65 -- Tyrion was demoted to rank 3
+65 -- Jeff was demoted to rank 3
+65 -- Bthalft left queue
+66 -- Vladimir started game
+66 -- Lionel started game
+66 -- Jerry started game
+66 -- Trick started game
+66 -- Hugo started game
+66 -- Nagoogin started game
+76 -- Vladimir ended game
+76 -- Lionel ended game
+76 -- Jerry ended game
+76 -- Trick ended game
+76 -- Hugo ended game
+76 -- Nagoogin ended game
+76 -- Vladimir was promoted to rank 1
+76 -- Lionel was promoted to rank 1
+76 -- Jerry was promoted to rank 2
+76 -- Trick was demoted to rank 2
+76 -- Hugo was demoted to rank 3
+76 -- Nagoogin was demoted to rank 3
+76 -- Hugo left queue
+77 -- Jimbus started game
+77 -- Bjerg started game
+77 -- Colin started game
+77 -- Christoph started game
+77 -- Arturo started game
+77 -- Edna started game
+87 -- Jimbus ended game
+87 -- Bjerg ended game
+87 -- Colin ended game
+87 -- Christoph ended game
+87 -- Arturo ended game
+87 -- Edna ended game
+87 -- Jimbus was promoted to rank 1
+87 -- Bjerg was promoted to rank 1
+87 -- Colin was promoted to rank 2
+87 -- Christoph was demoted to rank 2
+87 -- Arturo was demoted to rank 3
+87 -- Edna was demoted to rank 3
+88 -- Vladimir started game
+88 -- Jimbus started game
+88 -- Cuban started game
+88 -- Lionel started game
+88 -- Wayne started game
+88 -- Delata started game
+98 -- Vladimir ended game
+98 -- Jimbus ended game
+98 -- Cuban ended game
+98 -- Lionel ended game
+98 -- Wayne ended game
+98 -- Delata ended game
+98 -- Vladimir was promoted to rank 1
+98 -- Jimbus was promoted to rank 1
+98 -- Cuban was promoted to rank 2
+98 -- Lionel was demoted to rank 2
+98 -- Wayne was demoted to rank 3
+98 -- Delata was demoted to rank 3
+98 -- Cuban left queue
+98 -- Delata left queue
