@@ -31,6 +31,8 @@ public:
     //friends
     friend void read(vector <Record>& records);
     friend void printR(Record rec);
+    friend void reassign();
+    friend void game(int win, vector <Record>& team1, vector <Record>& team2);
 };
 
 void printR(Record rec) {
@@ -58,6 +60,8 @@ public:
     //methods
     void make_teams();
     void write(Record rec, int option);
+    void reassign();
+    void game(int win, vector <Record>& team1, vector <Record>& team2);
 };
 
 Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
@@ -97,6 +101,15 @@ void Manager::make_teams() {
     for (Record r : team2) {
         write(r, 2);
     }
+    for (int i = 0; i < 3; i++) {
+        gold.pop_front()
+    }
+    for (int i = 0; i < 2; i++) {
+        silver.pop_front();
+    }
+    bronze.pop_front();
+    
+    reassign();
 }
 
 void Manager::write(Record rec, int option) {
@@ -164,13 +177,45 @@ void read(vector <Record>& records) {
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
     //assigning players to respective queue
     for (Record r : records) {
-        if (r.get_rank() == 1)
-            g.push_back(r);
-        else if (r.get_rank() == 2)
-            s.push_back(r);
-        else
-            b.push_back(r);
+        if (r.get_games > 0) {
+            if (r.get_rank() == 1)
+                g.push_back(r);
+            else if (r.get_rank() == 2)
+                s.push_back(r);
+            else
+                b.push_back(r);
+        }
     }
+}
+
+void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
+    for (int i = 0; i < t1.size(); i++) {
+        if (team1.at(i).get_rank() != 1) {
+            team1.at(i).rank--;
+            team1.at(i).games--;
+        }
+        if (team2.at(i).get_rank() != 3) {
+            team2.at(i).rank++;
+            team2.at(i).games--;
+        }
+    }
+}
+
+void Manager::reassign() {
+    int winner = rand() % 1;
+    if (winner == 0) {
+        game(winner, team1, team2);
+    }
+    else
+        game(winner, team2, team1);
+    
+    assignQ(team1, gold, silver, bronze);
+    assignQ(team2, gold, silver, bronze);
+    
+    team1.clear();
+    team2.clear();
+    
+    make_teams();
 }
 
 int main() {
