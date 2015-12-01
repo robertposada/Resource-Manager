@@ -154,4 +154,3 @@ Qlist<T>& Qlist<T>::operator = (const Qlist<T>& list) {
     }
     return *this;
 }
-

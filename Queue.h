@@ -50,7 +50,7 @@ public:
     T pop_front();
     
     // Overloaded operators
-    Qlist<T>& operator = (const Qlist<T>& list);
+    Qlist<T>& operator =(const Qlist<T>& list);
     T operator [] (const int index);
 };
 
