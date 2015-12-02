@@ -56,6 +56,7 @@ private:
     int clock = 0, gameStart = 0, gameEnd = 0;
 public:
     // constructor
+    Manager();
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
     
     // getters
@@ -66,10 +67,16 @@ public:
     void make_teams(vector<Record>& records);
     void write(Record rec, int option);
     void reassign();
+    void assignQ(vector <Record>& records);
     void updateTime(vector<Record>& records);
     void updateLog(vector<Record>& records);
     void game(int win, vector <Record>& team1, vector <Record>& team2);
+    void logEnd();
 };
+
+Manager::Manager() {
+    
+}
 
 Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
     clock = 0;
@@ -89,6 +96,7 @@ void Manager::make_teams(vector<Record>& records) {
     team2.push_back(silver[0]);
     team2.push_back(silver[1]);
     team1.push_back(bronze[0]);
+
     
     // Should put code from here down in separate function(s)
     vector<Record> teams = team1;
@@ -128,7 +136,7 @@ void Manager::make_teams(vector<Record>& records) {
         silver.pop_front();
     }
     bronze.pop_front();
-    
+    // cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << " " << endl;
     return;
 }
 
@@ -159,6 +167,20 @@ void Manager::write(Record rec, int option) {
             case 7:
                 outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " re-entered queue for " << rec.get_games() << " games" << endl;
         }
+    }
+    else {
+        cout << "ERROR: Cannot open file." << endl;
+    }
+    outfile.close();
+    return;
+}
+
+void Manager::logEnd() {
+    ofstream outfile;
+    string fline;
+    outfile.open(LOGFILE, ios::app);
+    if (outfile) {
+        outfile << setfill('0') << setw(3) << gameEnd + 1 << " -- GAME OVER. All fair teams have been matched up. Arena Closed." << endl;
     }
     else {
         cout << "ERROR: Cannot open file." << endl;
@@ -205,18 +227,18 @@ void read(vector <Record>& records) {
     return;
 }
 
-void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
+void Manager::assignQ(vector <Record>& records) {
     // assigning players to respective queue
     for (Record r : records) {
         if (r.get_games() > 0) {
             if (r.get_rank() == 1) {
-                g.push_back(r);
+                gold.push_back(r);
             }
             else if (r.get_rank() == 2) {
-                s.push_back(r);
+                silver.push_back(r);
             }
             else {
-                b.push_back(r);
+                bronze.push_back(r);
             }
         }
     }
@@ -296,8 +318,9 @@ void Manager::reassign() {
     updateTime(team1);
     updateTime(team2);
 
-    assignQ(team1, gold, silver, bronze);
-    assignQ(team2, gold, silver, bronze);
+    assignQ(team1);
+    assignQ(team2);
+    // cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << endl;
     
     team1.clear();
     team2.clear();
@@ -305,16 +328,24 @@ void Manager::reassign() {
 }
 
 int main() {
+    bool running = true;
     vector <Record> records;
-    Qlist<Record> gold, silver, bronze;
+    // Qlist<Record> gold, silver, bronze;
     read(records);
-    assignQ(records, gold, silver, bronze);
-    Manager rito = Manager(gold, silver, bronze);
-    //while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
-    for (int i = 0; i < 9; i++) {
-        rito.make_teams(records);
-        rito.updateLog(records);
-        rito.reassign();
+    Manager rito;
+    rito.assignQ(records);
+    // Manager rito = Manager(gold, silver, bronze);
+    while (running) {
+        if (rito.gold.getSize() >= 3 && rito.silver.getSize() >= 2 && rito.bronze.getSize() >= 1) {
+            cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << endl;
+            rito.make_teams(records);
+            rito.updateLog(records);
+            rito.reassign();
+        }
+        else {
+            running = false;
+            rito.logEnd();
+        }
     }
     
     return 0;
