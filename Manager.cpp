@@ -139,22 +139,22 @@ void Manager::write(Record rec, int option) {
     if (outfile) {
         switch (option) {
             case 1:
-                outfile << setfill('0') << setw(2) << rec.get_time() << " -- " << rec.get_name() << " entered queue for " << rec.get_games() << " games" << endl;
+                outfile << setfill('0') << setw(3) << rec.get_time() << " -- " << rec.get_name() << " entered queue for " << rec.get_games() << " games" << endl;
                 break;
             case 2:
-                outfile << setfill('0') << setw(2) << gameStart << " -- " << rec.get_name() << " started game" << endl;
+                outfile << setfill('0') << setw(3) << gameStart << " -- " << rec.get_name() << " started game" << endl;
                 break;
             case 3:
-                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " ended game" << endl;
+                outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " ended game" << endl;
                 break;
             case 4:
-                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " was promoted to rank " << rec.get_rank() << endl;
+                outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " was promoted to rank " << rec.get_rank() << endl;
                 break;
             case 5:
-                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " was demoted to rank " << rec.get_rank() << endl;
+                outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " was demoted to rank " << rec.get_rank() << endl;
                 break;
             case 6:
-                outfile << setfill('0') << setw(2) << gameEnd << " -- " << rec.get_name() << " left queue" << endl;
+                outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " left queue" << endl;
         }
     }
     else {
@@ -288,14 +288,7 @@ void Manager::reassign() {
     
     updateTime(team1);
     updateTime(team2);
-    /*
-    for (Record r : team1) {
-        write(r, 1);
-    }
-    for (Record r : team2) {
-        write(r, 1);
-    }
-     */
+
     assignQ(team1, gold, silver, bronze);
     assignQ(team2, gold, silver, bronze);
     
@@ -312,7 +305,7 @@ int main() {
     assignQ(records, gold, silver, bronze);
     Manager rito = Manager(gold, silver, bronze);
     //while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         rito.make_teams(records);
         rito.updateLog(records);
         rito.reassign();
