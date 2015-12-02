@@ -116,8 +116,6 @@ void Manager::make_teams() {
         silver.pop_front();
     }
     bronze.pop_front();
-    
-    reassign();
 }
 
 // -- NOTES -- //
@@ -204,7 +202,7 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
 }
 
 void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
-    for (int i = 0; i < t1.size(); i++) {
+    for (int i = 0; i < team1.size(); i++) {
         if (team1.at(i).get_rank() != 1) {
             team1.at(i).rank--;
             team1.at(i).games--;
@@ -217,7 +215,7 @@ void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
 }
 
 void Manager::reassign() {
-    int winner = rand() % 1;
+    int winner = rand() % 2;
     if (winner == 0) {
         game(winner, team1, team2);
     }
@@ -229,8 +227,6 @@ void Manager::reassign() {
     
     team1.clear();
     team2.clear();
-    
-    make_teams();
 }
 
 int main() {
