@@ -155,6 +155,9 @@ void Manager::write(Record rec, int option) {
                 break;
             case 6:
                 outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " left queue" << endl;
+                break;
+            case 7:
+                outfile << setfill('0') << setw(3) << gameEnd << " -- " << rec.get_name() << " re-entered queue for " << rec.get_games() << " games" << endl;
         }
     }
     else {
@@ -225,14 +228,14 @@ void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
         // promotes the winning team's priority unless they're already priority 1
         if (team1.at(i).get_rank() != 1) {
             team1.at(i).rank--;
-            team1.at(i).games--;
         }
+        team1.at(i).games--;
         
         // demotes the losing team's priority unless they're already priority 3
         if (team2.at(i).get_rank() != 3) {
             team2.at(i).rank++;
-            team2.at(i).games--;
         }
+        team2.at(i).games--;
     }
     for (Record r : team1) {
         write(r, 4);
@@ -244,11 +247,15 @@ void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
         if (r.games == 0) {
             write(r, 6);
         }
+        else
+            write(r, 7);
     }
     for (Record r : team2) {
         if (r.games == 0) {
             write(r, 6);
         }
+        else
+            write(r, 7);
     }
     return;
 }
@@ -294,7 +301,6 @@ void Manager::reassign() {
     
     team1.clear();
     team2.clear();
-    
     return;
 }
 
