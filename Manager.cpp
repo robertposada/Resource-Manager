@@ -24,6 +24,10 @@ private:
     int games; // number of games they want to play
     int rank; // priority
 public:
+    // constructors
+    Record();
+    Record(int t, string n, int g, int r);
+    
     // public methods for Record class
     // getters
     int get_time();
@@ -62,12 +66,14 @@ public:
     // getters
     int get_clock();
     int get_gametime();
+    Qlist<Record>& getGold() { return gold; }
+    Qlist<Record>& getSilver() { return silver; }
+    Qlist<Record>& getBronze() { return bronze; }
     
     // methods
     void make_teams(vector<Record>& records);
     void write(Record rec, int option);
     void reassign();
-    void assignQ(vector <Record>& records);
     void updateTime(vector<Record>& records);
     void updateLog(vector<Record>& records);
     void game(int win, vector <Record>& team1, vector <Record>& team2);
@@ -90,6 +96,25 @@ int Manager::get_clock() {
 }
 
 void Manager::make_teams(vector<Record>& records) {
+    if (gold.getSize() < 3) {
+        for (int i = gold.getSize(); i < 3; i++) {
+            Record bot = Record(0, "BOT", 1, 1);
+            gold.push_back(bot);
+        }
+    }
+    if (silver.getSize() < 2) {
+        for (int i = silver.getSize(); i < 2; i++) {
+            Record bot = Record(0, "BOT", 1, 2);
+            silver.push_back(bot);
+        }
+    }
+    if (bronze.getSize() < 1) {
+        for (int i = bronze.getSize(); i < 1; i++) {
+            Record bot = Record(0, "BOT", 1, 3);
+            bronze.push_back(bot);
+        }
+    }
+    
     team1.push_back(gold[0]);
     team2.push_back(gold[1]);
     team1.push_back(gold[2]);
@@ -136,7 +161,6 @@ void Manager::make_teams(vector<Record>& records) {
         silver.pop_front();
     }
     bronze.pop_front();
-    // cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << " " << endl;
     return;
 }
 
@@ -189,6 +213,20 @@ void Manager::logEnd() {
     return;
 }
 
+Record::Record() {
+    time = 0;
+    name = "";
+    games = 0;
+    rank = 0;
+}
+
+Record::Record(int t, string n, int g, int r) {
+    time = t;
+    name = n;
+    games = g;
+    rank = r;
+}
+
 int Record::get_time() {
     return time;
 }
@@ -227,18 +265,18 @@ void read(vector <Record>& records) {
     return;
 }
 
-void Manager::assignQ(vector <Record>& records) {
+void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
     // assigning players to respective queue
     for (Record r : records) {
         if (r.get_games() > 0) {
             if (r.get_rank() == 1) {
-                gold.push_back(r);
+                g.push_back(r);
             }
             else if (r.get_rank() == 2) {
-                silver.push_back(r);
+                s.push_back(r);
             }
             else {
-                bronze.push_back(r);
+                b.push_back(r);
             }
         }
     }
@@ -318,8 +356,8 @@ void Manager::reassign() {
     updateTime(team1);
     updateTime(team2);
 
-    assignQ(team1);
-    assignQ(team2);
+    assignQ(team1, gold, silver, bronze);
+    assignQ(team2, gold, silver, bronze);
     // cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << endl;
     
     team1.clear();
@@ -330,22 +368,20 @@ void Manager::reassign() {
 int main() {
     bool running = true;
     vector <Record> records;
-    // Qlist<Record> gold, silver, bronze;
+    Qlist<Record> gold, silver, bronze;
     read(records);
-    Manager rito;
-    rito.assignQ(records);
-    // Manager rito = Manager(gold, silver, bronze);
+    assignQ(records, gold, silver, bronze);
+    Manager rito = Manager(gold, silver, bronze);
     while (running) {
-        if (rito.gold.getSize() >= 3 && rito.silver.getSize() >= 2 && rito.bronze.getSize() >= 1) {
-            cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << endl;
-            rito.make_teams(records);
-            rito.updateLog(records);
-            rito.reassign();
-        }
-        else {
+        rito.make_teams(records);
+        rito.updateLog(records);
+        rito.reassign();
+        if (rito.getGold().getSize() == 0 && rito.getSilver().getSize() == 0 && rito.getBronze().getSize() == 0) {
             running = false;
             rito.logEnd();
         }
+        // delete the line below once done
+        cout << rito.getGold().getSize() << " " << rito.getSilver().getSize() << " " << rito.getBronze().getSize() << endl;
     }
     
     return 0;

@@ -385,3 +385,172 @@
 175 -- Tyrion left queue
 175 -- Bjerg left queue
 175 -- Wayne re-entered queue for 2 games
+176 -- BOT started game
+176 -- BOT started game
+176 -- Jerry started game
+176 -- BOT started game
+176 -- Ernest started game
+176 -- Jeff started game
+186 -- BOT ended game
+186 -- BOT ended game
+186 -- Jerry ended game
+186 -- BOT ended game
+186 -- Ernest ended game
+186 -- Jeff ended game
+186 -- BOT was promoted to rank 1
+186 -- Ernest was promoted to rank 1
+186 -- Jeff was promoted to rank 1
+186 -- BOT was demoted to rank 2
+186 -- BOT was demoted to rank 2
+186 -- Jerry was demoted to rank 3
+186 -- BOT left queue
+186 -- Ernest left queue
+186 -- Jeff left queue
+186 -- BOT left queue
+186 -- BOT left queue
+186 -- Jerry re-entered queue for 1 games
+187 -- BOT started game
+187 -- BOT started game
+187 -- Colin started game
+187 -- BOT started game
+187 -- Steph started game
+187 -- BOT started game
+197 -- BOT ended game
+197 -- BOT ended game
+197 -- Colin ended game
+197 -- BOT ended game
+197 -- Steph ended game
+197 -- BOT ended game
+197 -- BOT was promoted to rank 1
+197 -- Steph was promoted to rank 1
+197 -- BOT was promoted to rank 1
+197 -- BOT was demoted to rank 2
+197 -- BOT was demoted to rank 2
+197 -- Colin was demoted to rank 3
+197 -- BOT left queue
+197 -- Steph left queue
+197 -- BOT left queue
+197 -- BOT left queue
+197 -- BOT left queue
+197 -- Colin left queue
+198 -- BOT started game
+198 -- BOT started game
+198 -- Arturo started game
+198 -- BOT started game
+198 -- BOT started game
+198 -- BOT started game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- Arturo ended game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- BOT was promoted to rank 1
+208 -- BOT was promoted to rank 1
+208 -- BOT was promoted to rank 1
+208 -- BOT was demoted to rank 2
+208 -- BOT was demoted to rank 2
+208 -- Arturo was demoted to rank 3
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- Arturo re-entered queue for 1 games
+209 -- BOT started game
+209 -- BOT started game
+209 -- Wayne started game
+209 -- BOT started game
+209 -- BOT started game
+209 -- BOT started game
+219 -- BOT ended game
+219 -- BOT ended game
+219 -- Wayne ended game
+219 -- BOT ended game
+219 -- BOT ended game
+219 -- BOT ended game
+219 -- BOT was promoted to rank 1
+219 -- BOT was promoted to rank 1
+219 -- BOT was promoted to rank 1
+219 -- BOT was demoted to rank 2
+219 -- BOT was demoted to rank 2
+219 -- Wayne was demoted to rank 3
+219 -- BOT left queue
+219 -- BOT left queue
+219 -- BOT left queue
+219 -- BOT left queue
+219 -- BOT left queue
+219 -- Wayne re-entered queue for 1 games
+220 -- BOT started game
+220 -- BOT started game
+220 -- Jerry started game
+220 -- BOT started game
+220 -- BOT started game
+220 -- BOT started game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- Jerry ended game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- BOT was promoted to rank 1
+230 -- BOT was promoted to rank 1
+230 -- BOT was promoted to rank 1
+230 -- BOT was demoted to rank 2
+230 -- BOT was demoted to rank 2
+230 -- Jerry was demoted to rank 3
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- Jerry left queue
+231 -- BOT started game
+231 -- BOT started game
+231 -- Arturo started game
+231 -- BOT started game
+231 -- BOT started game
+231 -- BOT started game
+241 -- BOT ended game
+241 -- BOT ended game
+241 -- Arturo ended game
+241 -- BOT ended game
+241 -- BOT ended game
+241 -- BOT ended game
+241 -- BOT was promoted to rank 1
+241 -- BOT was promoted to rank 1
+241 -- BOT was promoted to rank 1
+241 -- BOT was demoted to rank 2
+241 -- BOT was demoted to rank 2
+241 -- Arturo was demoted to rank 3
+241 -- BOT left queue
+241 -- BOT left queue
+241 -- BOT left queue
+241 -- BOT left queue
+241 -- BOT left queue
+241 -- Arturo left queue
+242 -- BOT started game
+242 -- BOT started game
+242 -- Wayne started game
+242 -- BOT started game
+242 -- BOT started game
+242 -- BOT started game
+252 -- BOT ended game
+252 -- BOT ended game
+252 -- Wayne ended game
+252 -- BOT ended game
+252 -- BOT ended game
+252 -- BOT ended game
+252 -- BOT was promoted to rank 1
+252 -- BOT was promoted to rank 1
+252 -- BOT was promoted to rank 1
+252 -- BOT was demoted to rank 2
+252 -- BOT was demoted to rank 2
+252 -- Wayne was demoted to rank 3
+252 -- BOT left queue
+252 -- BOT left queue
+252 -- BOT left queue
+252 -- BOT left queue
+252 -- BOT left queue
+252 -- Wayne left queue
+253 -- GAME OVER. All fair teams have been matched up. Arena Closed.
