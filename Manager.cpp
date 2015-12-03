@@ -204,7 +204,7 @@ void Manager::logEnd() {
     string fline;
     outfile.open(LOGFILE, ios::app);
     if (outfile) {
-        outfile << setfill('0') << setw(3) << gameEnd + 1 << " -- GAME OVER. All fair teams have been matched up. Arena Closed." << endl;
+        outfile << setfill('0') << setw(3) << gameEnd + 1 << " -- All requests have been fulfilled." << endl;
     }
     else {
         cout << "ERROR: Cannot open file." << endl;
