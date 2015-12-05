@@ -358,7 +358,6 @@ void Manager::reassign() {
 
     assignQ(team1, gold, silver, bronze);
     assignQ(team2, gold, silver, bronze);
-    // cout << gold.getSize() << " " << silver.getSize() << " " << bronze.getSize() << endl;
     
     team1.clear();
     team2.clear();
@@ -380,8 +379,6 @@ int main() {
             running = false;
             rito.logEnd();
         }
-        // delete the line below once done
-        cout << rito.getGold().getSize() << " " << rito.getSilver().getSize() << " " << rito.getBronze().getSize() << endl;
     }
     
     return 0;
