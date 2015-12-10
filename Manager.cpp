@@ -60,7 +60,6 @@ private:
     int clock = 0, gameStart = 0, gameEnd = 0;
 public:
     // constructor
-    Manager();
     Manager(Qlist<Record> g, Qlist<Record> s, Qlist<Record> b);
     
     // getters
@@ -79,10 +78,6 @@ public:
     void game(int win, vector <Record>& team1, vector <Record>& team2);
     void logEnd();
 };
-
-Manager::Manager() {
-    
-}
 
 Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
     clock = 0;
@@ -379,6 +374,8 @@ int main() {
             running = false;
             rito.logEnd();
         }
+        // displays the size of each queue. All requests have been fulfilled if the display reads "0 0 0"
+        cout << rito.getGold().getSize() << ' ' << rito.getSilver().getSize() << ' ' << rito.getBronze().getSize() << endl;
     }
     
     return 0;
