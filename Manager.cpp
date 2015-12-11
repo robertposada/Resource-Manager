@@ -236,6 +236,7 @@ void Manager::write(Record rec, int option) {
     return;
 }
 
+// Logs the end of the games
 void Manager::logEnd() {
     ofstream outfile;
     string fline;
@@ -250,6 +251,7 @@ void Manager::logEnd() {
     return;
 }
 
+// Reads in requests from file (Requests.txt)
 void read(vector <Record>& records) {
     ifstream infile;
     string filename, fline;
@@ -272,8 +274,9 @@ void read(vector <Record>& records) {
     return;
 }
 
+// Assigns players to their respective queues
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
-    // assigning players to respective queue
+
     for (Record r : records) {
         if (r.get_games() > 0) {
             if (r.get_rank() == 1) {
@@ -290,6 +293,7 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
     return;
 }
 
+// Takes care of priority/rank promotions/demotions
 void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
     for (int i = 0; i < team1.size(); i++) {
         // promotes the winning team's priority unless they're already priority 1
@@ -390,7 +394,7 @@ int main() {
             rito.logEnd();
         }
         // displays the size of each queue. All requests have been fulfilled if the display reads "0 0 0"
-        cout << rito.getGold().getSize() << ' ' << rito.getSilver().getSize() << ' ' << rito.getBronze().getSize() << endl;
+        cout << "Gold: " << rito.getGold().getSize() << " Silver: " << rito.getSilver().getSize() << " Bronze: " << rito.getBronze().getSize() << endl;
     }
     
     return 0;
