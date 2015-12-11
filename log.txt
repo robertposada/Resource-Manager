@@ -1,1 +1,509 @@
 
+001 -- Jimbus entered queue for 5 games
+003 -- Nagoogin entered queue for 3 games
+005 -- Hugo entered queue for 2 games
+006 -- Ernest entered queue for 5 games
+008 -- Francis entered queue for 1 games
+011 -- Christoph entered queue for 4 games
+011 -- Jimbus started game
+011 -- Christoph started game
+011 -- Hugo started game
+011 -- Nagoogin started game
+011 -- Ernest started game
+011 -- Francis started game
+015 -- Arturo entered queue for 5 games
+016 -- Jason entered queue for 3 games
+019 -- Posadinho entered queue for 2 games
+020 -- Wayne entered queue for 5 games
+021 -- Jimbus ended game
+021 -- Christoph ended game
+021 -- Hugo ended game
+021 -- Nagoogin ended game
+021 -- Ernest ended game
+021 -- Francis ended game
+021 -- Nagoogin was promoted to rank 1
+021 -- Ernest was promoted to rank 1
+021 -- Francis was promoted to rank 1
+021 -- Jimbus was demoted to rank 2
+021 -- Christoph was demoted to rank 2
+021 -- Hugo was demoted to rank 3
+021 -- Nagoogin re-entered queue for 2 games
+021 -- Ernest re-entered queue for 4 games
+021 -- Francis left queue
+021 -- Jimbus re-entered queue for 4 games
+021 -- Christoph re-entered queue for 3 games
+021 -- Hugo re-entered queue for 1 games
+022 -- Jung entered queue for 2 games
+022 -- Posadinho started game
+022 -- Bjerg started game
+022 -- Arturo started game
+022 -- Edna started game
+022 -- Jason started game
+022 -- Jung started game
+025 -- Bobby entered queue for 5 games
+026 -- Edna entered queue for 3 games
+029 -- Petyr entered queue for 4 games
+030 -- Bjerg entered queue for 5 games
+032 -- Posadinho ended game
+032 -- Bjerg ended game
+032 -- Arturo ended game
+032 -- Edna ended game
+032 -- Jason ended game
+032 -- Jung ended game
+032 -- Edna was promoted to rank 1
+032 -- Jason was promoted to rank 1
+032 -- Jung was promoted to rank 1
+032 -- Posadinho was demoted to rank 2
+032 -- Bjerg was demoted to rank 2
+032 -- Arturo was demoted to rank 3
+032 -- Edna re-entered queue for 2 games
+032 -- Jason re-entered queue for 2 games
+032 -- Jung re-entered queue for 1 games
+032 -- Posadinho re-entered queue for 1 games
+032 -- Bjerg re-entered queue for 4 games
+032 -- Arturo re-entered queue for 4 games
+033 -- Vladimir started game
+033 -- Trick started game
+033 -- Wayne started game
+033 -- Delata started game
+033 -- Bobby started game
+033 -- Petyr started game
+035 -- Vladimir entered queue for 4 games
+037 -- Delata entered queue for 2 games
+038 -- Trick entered queue for 3 games
+039 -- Bthalft entered queue for 1 games
+041 -- Jerry entered queue for 4 games
+043 -- Vladimir ended game
+043 -- Trick ended game
+043 -- Wayne ended game
+043 -- Delata ended game
+043 -- Bobby ended game
+043 -- Petyr ended game
+043 -- Delata was promoted to rank 1
+043 -- Bobby was promoted to rank 1
+043 -- Petyr was promoted to rank 1
+043 -- Vladimir was demoted to rank 2
+043 -- Trick was demoted to rank 2
+043 -- Wayne was demoted to rank 3
+043 -- Delata re-entered queue for 1 games
+043 -- Bobby re-entered queue for 4 games
+043 -- Petyr re-entered queue for 3 games
+043 -- Vladimir re-entered queue for 3 games
+043 -- Trick re-entered queue for 2 games
+043 -- Wayne re-entered queue for 4 games
+044 -- Lionel started game
+044 -- Nagoogin started game
+044 -- Bthalft started game
+044 -- Justine started game
+044 -- Steph started game
+044 -- Edward started game
+047 -- Cuban entered queue for 1 games
+050 -- Edward entered queue for 4 games
+051 -- Lionel entered queue for 4 games
+054 -- Lionel ended game
+054 -- Nagoogin ended game
+054 -- Bthalft ended game
+054 -- Justine ended game
+054 -- Steph ended game
+054 -- Edward ended game
+054 -- Justine was promoted to rank 1
+054 -- Steph was promoted to rank 1
+054 -- Edward was promoted to rank 1
+054 -- Lionel was demoted to rank 2
+054 -- Nagoogin was demoted to rank 2
+054 -- Bthalft was demoted to rank 3
+054 -- Justine re-entered queue for 2 games
+054 -- Steph re-entered queue for 4 games
+054 -- Edward re-entered queue for 3 games
+054 -- Lionel re-entered queue for 3 games
+054 -- Nagoogin re-entered queue for 1 games
+054 -- Bthalft left queue
+055 -- Ernest started game
+055 -- Jason started game
+055 -- Jerry started game
+055 -- Edna started game
+055 -- Cristiano started game
+055 -- Tyrion started game
+059 -- Ayalew entered queue for 1 games
+061 -- Tyrion entered queue for 4 games
+062 -- Justine entered queue for 3 games
+064 -- Jeff entered queue for 5 games
+065 -- Ernest ended game
+065 -- Jason ended game
+065 -- Jerry ended game
+065 -- Edna ended game
+065 -- Cristiano ended game
+065 -- Tyrion ended game
+065 -- Edna was promoted to rank 1
+065 -- Cristiano was promoted to rank 1
+065 -- Tyrion was promoted to rank 1
+065 -- Ernest was demoted to rank 2
+065 -- Jason was demoted to rank 2
+065 -- Jerry was demoted to rank 3
+065 -- Edna re-entered queue for 1 games
+065 -- Cristiano re-entered queue for 1 games
+065 -- Tyrion re-entered queue for 3 games
+065 -- Ernest re-entered queue for 3 games
+065 -- Jason re-entered queue for 1 games
+065 -- Jerry re-entered queue for 3 games
+066 -- Jung started game
+066 -- Bobby started game
+066 -- Colin started game
+066 -- Delata started game
+066 -- Jeff started game
+066 -- Jimbus started game
+076 -- Jung ended game
+076 -- Bobby ended game
+076 -- Colin ended game
+076 -- Delata ended game
+076 -- Jeff ended game
+076 -- Jimbus ended game
+076 -- Delata was promoted to rank 1
+076 -- Jeff was promoted to rank 1
+076 -- Jimbus was promoted to rank 1
+076 -- Jung was demoted to rank 2
+076 -- Bobby was demoted to rank 2
+076 -- Colin was demoted to rank 3
+076 -- Delata left queue
+076 -- Jeff re-entered queue for 4 games
+076 -- Jimbus re-entered queue for 3 games
+076 -- Jung left queue
+076 -- Bobby re-entered queue for 3 games
+076 -- Colin re-entered queue for 2 games
+077 -- Petyr started game
+077 -- Steph started game
+077 -- Cuban started game
+077 -- Justine started game
+077 -- Christoph started game
+077 -- Posadinho started game
+087 -- Petyr ended game
+087 -- Steph ended game
+087 -- Cuban ended game
+087 -- Justine ended game
+087 -- Christoph ended game
+087 -- Posadinho ended game
+087 -- Justine was promoted to rank 1
+087 -- Christoph was promoted to rank 1
+087 -- Posadinho was promoted to rank 1
+087 -- Petyr was demoted to rank 2
+087 -- Steph was demoted to rank 2
+087 -- Cuban was demoted to rank 3
+087 -- Justine re-entered queue for 1 games
+087 -- Christoph re-entered queue for 2 games
+087 -- Posadinho left queue
+087 -- Petyr re-entered queue for 2 games
+087 -- Steph re-entered queue for 3 games
+087 -- Cuban left queue
+088 -- Edward started game
+088 -- Cristiano started game
+088 -- Ayalew started game
+088 -- Edna started game
+088 -- Bjerg started game
+088 -- Vladimir started game
+098 -- Edward ended game
+098 -- Cristiano ended game
+098 -- Ayalew ended game
+098 -- Edna ended game
+098 -- Bjerg ended game
+098 -- Vladimir ended game
+098 -- Edna was promoted to rank 1
+098 -- Bjerg was promoted to rank 1
+098 -- Vladimir was promoted to rank 1
+098 -- Edward was demoted to rank 2
+098 -- Cristiano was demoted to rank 2
+098 -- Ayalew was demoted to rank 3
+098 -- Edna left queue
+098 -- Bjerg re-entered queue for 3 games
+098 -- Vladimir re-entered queue for 2 games
+098 -- Edward re-entered queue for 2 games
+098 -- Cristiano left queue
+098 -- Ayalew left queue
+099 -- Tyrion started game
+099 -- Jimbus started game
+099 -- Hugo started game
+099 -- Jeff started game
+099 -- Trick started game
+099 -- Lionel started game
+109 -- Tyrion ended game
+109 -- Jimbus ended game
+109 -- Hugo ended game
+109 -- Jeff ended game
+109 -- Trick ended game
+109 -- Lionel ended game
+109 -- Jeff was promoted to rank 1
+109 -- Trick was promoted to rank 1
+109 -- Lionel was promoted to rank 1
+109 -- Tyrion was demoted to rank 2
+109 -- Jimbus was demoted to rank 2
+109 -- Hugo was demoted to rank 3
+109 -- Jeff re-entered queue for 3 games
+109 -- Trick re-entered queue for 1 games
+109 -- Lionel re-entered queue for 2 games
+109 -- Tyrion re-entered queue for 2 games
+109 -- Jimbus re-entered queue for 2 games
+109 -- Hugo left queue
+110 -- Justine started game
+110 -- Bjerg started game
+110 -- Arturo started game
+110 -- Christoph started game
+110 -- Nagoogin started game
+110 -- Ernest started game
+120 -- Justine ended game
+120 -- Bjerg ended game
+120 -- Arturo ended game
+120 -- Christoph ended game
+120 -- Nagoogin ended game
+120 -- Ernest ended game
+120 -- Christoph was promoted to rank 1
+120 -- Nagoogin was promoted to rank 1
+120 -- Ernest was promoted to rank 1
+120 -- Justine was demoted to rank 2
+120 -- Bjerg was demoted to rank 2
+120 -- Arturo was demoted to rank 3
+120 -- Christoph re-entered queue for 1 games
+120 -- Nagoogin left queue
+120 -- Ernest re-entered queue for 2 games
+120 -- Justine left queue
+120 -- Bjerg re-entered queue for 2 games
+120 -- Arturo re-entered queue for 3 games
+121 -- Vladimir started game
+121 -- Trick started game
+121 -- Wayne started game
+121 -- Jeff started game
+121 -- Jason started game
+121 -- Bobby started game
+131 -- Vladimir ended game
+131 -- Trick ended game
+131 -- Wayne ended game
+131 -- Jeff ended game
+131 -- Jason ended game
+131 -- Bobby ended game
+131 -- Jeff was promoted to rank 1
+131 -- Jason was promoted to rank 1
+131 -- Bobby was promoted to rank 1
+131 -- Vladimir was demoted to rank 2
+131 -- Trick was demoted to rank 2
+131 -- Wayne was demoted to rank 3
+131 -- Jeff re-entered queue for 2 games
+131 -- Jason left queue
+131 -- Bobby re-entered queue for 2 games
+131 -- Vladimir re-entered queue for 1 games
+131 -- Trick left queue
+131 -- Wayne re-entered queue for 3 games
+132 -- Lionel started game
+132 -- Ernest started game
+132 -- Jerry started game
+132 -- Christoph started game
+132 -- Petyr started game
+132 -- Steph started game
+142 -- Lionel ended game
+142 -- Ernest ended game
+142 -- Jerry ended game
+142 -- Christoph ended game
+142 -- Petyr ended game
+142 -- Steph ended game
+142 -- Christoph was promoted to rank 1
+142 -- Petyr was promoted to rank 1
+142 -- Steph was promoted to rank 1
+142 -- Lionel was demoted to rank 2
+142 -- Ernest was demoted to rank 2
+142 -- Jerry was demoted to rank 3
+142 -- Christoph left queue
+142 -- Petyr re-entered queue for 1 games
+142 -- Steph re-entered queue for 2 games
+142 -- Lionel re-entered queue for 1 games
+142 -- Ernest re-entered queue for 1 games
+142 -- Jerry re-entered queue for 2 games
+143 -- Jeff started game
+143 -- Petyr started game
+143 -- Colin started game
+143 -- Bobby started game
+143 -- Edward started game
+143 -- Tyrion started game
+153 -- Jeff ended game
+153 -- Petyr ended game
+153 -- Colin ended game
+153 -- Bobby ended game
+153 -- Edward ended game
+153 -- Tyrion ended game
+153 -- Bobby was promoted to rank 1
+153 -- Edward was promoted to rank 1
+153 -- Tyrion was promoted to rank 1
+153 -- Jeff was demoted to rank 2
+153 -- Petyr was demoted to rank 2
+153 -- Colin was demoted to rank 3
+153 -- Bobby re-entered queue for 1 games
+153 -- Edward re-entered queue for 1 games
+153 -- Tyrion re-entered queue for 1 games
+153 -- Jeff re-entered queue for 1 games
+153 -- Petyr left queue
+153 -- Colin re-entered queue for 1 games
+154 -- Steph started game
+154 -- Edward started game
+154 -- Arturo started game
+154 -- Bobby started game
+154 -- Jimbus started game
+154 -- Bjerg started game
+164 -- Steph ended game
+164 -- Edward ended game
+164 -- Arturo ended game
+164 -- Bobby ended game
+164 -- Jimbus ended game
+164 -- Bjerg ended game
+164 -- Bobby was promoted to rank 1
+164 -- Jimbus was promoted to rank 1
+164 -- Bjerg was promoted to rank 1
+164 -- Steph was demoted to rank 2
+164 -- Edward was demoted to rank 2
+164 -- Arturo was demoted to rank 3
+164 -- Bobby left queue
+164 -- Jimbus re-entered queue for 1 games
+164 -- Bjerg re-entered queue for 1 games
+164 -- Steph re-entered queue for 1 games
+164 -- Edward left queue
+164 -- Arturo re-entered queue for 2 games
+165 -- Tyrion started game
+165 -- Bjerg started game
+165 -- Wayne started game
+165 -- Jimbus started game
+165 -- Vladimir started game
+165 -- Lionel started game
+175 -- Tyrion ended game
+175 -- Bjerg ended game
+175 -- Wayne ended game
+175 -- Jimbus ended game
+175 -- Vladimir ended game
+175 -- Lionel ended game
+175 -- Jimbus was promoted to rank 1
+175 -- Vladimir was promoted to rank 1
+175 -- Lionel was promoted to rank 1
+175 -- Tyrion was demoted to rank 2
+175 -- Bjerg was demoted to rank 2
+175 -- Wayne was demoted to rank 3
+175 -- Jimbus left queue
+175 -- Vladimir left queue
+175 -- Lionel left queue
+175 -- Tyrion left queue
+175 -- Bjerg left queue
+175 -- Wayne re-entered queue for 2 games
+176 -- BOT started game
+176 -- BOT started game
+176 -- Jerry started game
+176 -- BOT started game
+176 -- Ernest started game
+176 -- Jeff started game
+186 -- BOT ended game
+186 -- BOT ended game
+186 -- Jerry ended game
+186 -- BOT ended game
+186 -- Ernest ended game
+186 -- Jeff ended game
+186 -- BOT was promoted to rank 1
+186 -- BOT was promoted to rank 1
+186 -- Jerry was promoted to rank 2
+186 -- BOT was demoted to rank 2
+186 -- Ernest was demoted to rank 3
+186 -- Jeff was demoted to rank 3
+186 -- BOT left queue
+186 -- BOT left queue
+186 -- Jerry re-entered queue for 1 games
+186 -- BOT left queue
+186 -- Ernest left queue
+186 -- Jeff left queue
+187 -- BOT started game
+187 -- BOT started game
+187 -- Colin started game
+187 -- BOT started game
+187 -- Steph started game
+187 -- Jerry started game
+197 -- BOT ended game
+197 -- BOT ended game
+197 -- Colin ended game
+197 -- BOT ended game
+197 -- Steph ended game
+197 -- Jerry ended game
+197 -- BOT was promoted to rank 1
+197 -- BOT was promoted to rank 1
+197 -- Colin was promoted to rank 2
+197 -- BOT was demoted to rank 2
+197 -- Steph was demoted to rank 3
+197 -- Jerry was demoted to rank 3
+197 -- BOT left queue
+197 -- BOT left queue
+197 -- Colin left queue
+197 -- BOT left queue
+197 -- Steph left queue
+197 -- Jerry left queue
+198 -- BOT started game
+198 -- BOT started game
+198 -- Arturo started game
+198 -- BOT started game
+198 -- BOT started game
+198 -- BOT started game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- Arturo ended game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- BOT ended game
+208 -- BOT was promoted to rank 1
+208 -- BOT was promoted to rank 1
+208 -- Arturo was promoted to rank 2
+208 -- BOT was demoted to rank 2
+208 -- BOT was demoted to rank 3
+208 -- BOT was demoted to rank 3
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- Arturo re-entered queue for 1 games
+208 -- BOT left queue
+208 -- BOT left queue
+208 -- BOT left queue
+209 -- BOT started game
+209 -- BOT started game
+209 -- Wayne started game
+209 -- BOT started game
+209 -- Arturo started game
+209 -- BOT started game
+219 -- BOT ended game
+219 -- BOT ended game
+219 -- Wayne ended game
+219 -- BOT ended game
+219 -- Arturo ended game
+219 -- BOT ended game
+219 -- BOT was promoted to rank 1
+219 -- BOT was promoted to rank 1
+219 -- Wayne was promoted to rank 2
+219 -- BOT was demoted to rank 2
+219 -- Arturo was demoted to rank 3
+219 -- BOT was demoted to rank 3
+219 -- BOT left queue
+219 -- BOT left queue
+219 -- Wayne re-entered queue for 1 games
+219 -- BOT left queue
+219 -- Arturo left queue
+219 -- BOT left queue
+220 -- BOT started game
+220 -- BOT started game
+220 -- BOT started game
+220 -- BOT started game
+220 -- Wayne started game
+220 -- BOT started game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- BOT ended game
+230 -- Wayne ended game
+230 -- BOT ended game
+230 -- BOT was promoted to rank 1
+230 -- BOT was promoted to rank 1
+230 -- BOT was promoted to rank 2
+230 -- BOT was demoted to rank 2
+230 -- Wayne was demoted to rank 3
+230 -- BOT was demoted to rank 3
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- BOT left queue
+230 -- Wayne left queue
+230 -- BOT left queue
+231 -- All requests have been fulfilled.
