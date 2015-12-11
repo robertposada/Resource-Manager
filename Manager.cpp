@@ -2,6 +2,7 @@
 Name(s): Kevin Nguyen & Robert Posada
 Date: 11/20/2015
 Project #3
+Resource Manager
 */
 
 #include <iostream>
@@ -24,6 +25,10 @@ private:
     int games; // number of games they want to play
     int rank; // priority
 public:
+    // constructors
+    Record();
+    Record(int t, string n, int g, int r);
+    
     // public methods for Record class
     // getters
     int get_time();
@@ -61,6 +66,9 @@ public:
     // getters
     int get_clock();
     int get_gametime();
+    Qlist<Record>& getGold() { return gold; }
+    Qlist<Record>& getSilver() { return silver; }
+    Qlist<Record>& getBronze() { return bronze; }
     
     // methods
     void make_teams(vector<Record>& records);
@@ -69,8 +77,41 @@ public:
     void updateTime(vector<Record>& records);
     void updateLog(vector<Record>& records);
     void game(int win, vector <Record>& team1, vector <Record>& team2);
+    void logEnd();
 };
 
+// Definition of Record class below
+Record::Record() {
+    time = 0;
+    name = "";
+    games = 0;
+    rank = 0;
+}
+
+Record::Record(int t, string n, int g, int r) {
+    time = t;
+    name = n;
+    games = g;
+    rank = r;
+}
+
+int Record::get_time() {
+    return time;
+}
+
+string Record::get_name() {
+    return name;
+}
+
+int Record::get_games() {
+    return games;
+}
+
+int Record::get_rank() {
+    return rank;
+}
+
+// Definition of Manager class and other methods below
 Manager::Manager(Qlist<Record> g,Qlist<Record> s, Qlist<Record> b) {
     clock = 0;
     gold = g;
@@ -83,12 +124,35 @@ int Manager::get_clock() {
 }
 
 void Manager::make_teams(vector<Record>& records) {
+    // Checks to see if either gold, silver, or bronze queue has too few players to complete a team
+    // If true, BOT/fake players are inserted into game, which is quite similar to actual online gameplay
+    if (gold.getSize() < 3) {
+        for (int i = gold.getSize(); i < 3; i++) {
+            Record bot = Record(0, "BOT", 1, 1);
+            gold.push_back(bot);
+        }
+    }
+    if (silver.getSize() < 2) {
+        for (int i = silver.getSize(); i < 2; i++) {
+            Record bot = Record(0, "BOT", 1, 2);
+            silver.push_back(bot);
+        }
+    }
+    if (bronze.getSize() < 1) {
+        for (int i = bronze.getSize(); i < 1; i++) {
+            Record bot = Record(0, "BOT", 1, 3);
+            bronze.push_back(bot);
+        }
+    }
+    
+    // Makes a "fair" team w/ team 1: 2 golds, 1 bronze & team2: 1 gold, 2 silvers
     team1.push_back(gold[0]);
     team2.push_back(gold[1]);
     team1.push_back(gold[2]);
     team2.push_back(silver[0]);
     team2.push_back(silver[1]);
     team1.push_back(bronze[0]);
+
     
     // Should put code from here down in separate function(s)
     vector<Record> teams = team1;
@@ -102,6 +166,7 @@ void Manager::make_teams(vector<Record>& records) {
             }
         }
     }
+    
     if (clock > gameStart) {
         gameStart = clock + 1;
     }
@@ -121,6 +186,7 @@ void Manager::make_teams(vector<Record>& records) {
     for (Record r : team2) {
         write(r, 2);
     }
+    // Removes the players from their respective queues that just played
     for (int i = 0; i < 3; i++) {
         gold.pop_front();
     }
@@ -132,10 +198,12 @@ void Manager::make_teams(vector<Record>& records) {
     return;
 }
 
+// Logging function to document all operations
 void Manager::write(Record rec, int option) {
     ofstream outfile;
     string fline;
-    outfile.open(LOGFILE, ios::app);
+    outfile.open(LOGFILE, ios::app); // need ios::app to append to the existing file, not overwrite
+    // if the file is not "corrupted"
     if (outfile) {
         switch (option) {
             case 1:
@@ -163,26 +231,27 @@ void Manager::write(Record rec, int option) {
     else {
         cout << "ERROR: Cannot open file." << endl;
     }
+    // close file
     outfile.close();
     return;
 }
 
-int Record::get_time() {
-    return time;
+// Logs the end of the games
+void Manager::logEnd() {
+    ofstream outfile;
+    string fline;
+    outfile.open(LOGFILE, ios::app);
+    if (outfile) {
+        outfile << setfill('0') << setw(3) << gameEnd + 1 << " -- All requests have been fulfilled." << endl;
+    }
+    else {
+        cout << "ERROR: Cannot open file." << endl;
+    }
+    outfile.close();
+    return;
 }
 
-string Record::get_name() {
-    return name;
-}
-
-int Record::get_games() {
-    return games;
-}
-
-int Record::get_rank() {
-    return rank;
-}
-
+// Reads in requests from file (Requests.txt)
 void read(vector <Record>& records) {
     ifstream infile;
     string filename, fline;
@@ -205,8 +274,9 @@ void read(vector <Record>& records) {
     return;
 }
 
+// Assigns players to their respective queues
 void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist<Record>& b) {
-    // assigning players to respective queue
+
     for (Record r : records) {
         if (r.get_games() > 0) {
             if (r.get_rank() == 1) {
@@ -223,6 +293,7 @@ void assignQ(vector <Record>& records, Qlist<Record>& g, Qlist<Record>& s, Qlist
     return;
 }
 
+// Takes care of priority/rank promotions/demotions
 void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
     for (int i = 0; i < team1.size(); i++) {
         // promotes the winning team's priority unless they're already priority 1
@@ -260,6 +331,7 @@ void Manager::game(int win, vector <Record>& team1, vector <Record>& team2) {
     return;
 }
 
+// Logs external requests while in a game
 void Manager::updateLog(vector<Record>& records) {
     for (Record r : records) {
         if (r.time > gameStart && r.time < gameEnd) {
@@ -269,6 +341,7 @@ void Manager::updateLog(vector<Record>& records) {
     return;
 }
 
+// Updates the times that players re-enter queue if they have more games
 void Manager::updateTime(vector<Record>& records) {
     for (Record r: records) {
         r.time = gameEnd;
@@ -276,6 +349,7 @@ void Manager::updateTime(vector<Record>& records) {
     return;
 }
 
+// Reassigns those who just played to the back of their respective queues if they have more games
 void Manager::reassign() {
     for (Record r : team1) {
         write(r, 3);
@@ -305,16 +379,22 @@ void Manager::reassign() {
 }
 
 int main() {
+    bool running = true;
     vector <Record> records;
     Qlist<Record> gold, silver, bronze;
     read(records);
     assignQ(records, gold, silver, bronze);
     Manager rito = Manager(gold, silver, bronze);
-    //while (gold.getSize() + silver.getSize() + bronze.getSize() > 5) {
-    for (int i = 0; i < 9; i++) {
+    while (running) {
         rito.make_teams(records);
         rito.updateLog(records);
         rito.reassign();
+        if (rito.getGold().getSize() == 0 && rito.getSilver().getSize() == 0 && rito.getBronze().getSize() == 0) {
+            running = false;
+            rito.logEnd();
+        }
+        // displays the size of each queue. All requests have been fulfilled if the display reads "0 0 0"
+        cout << "Gold: " << rito.getGold().getSize() << " Silver: " << rito.getSilver().getSize() << " Bronze: " << rito.getBronze().getSize() << endl;
     }
     
     return 0;
